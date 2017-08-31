@@ -3,13 +3,19 @@
 
   {% include head.html %}
 
-  <body>
-
+<body class="eupopup eupopup-top">
     {% include sidebar.html %}
-
     <div class="content container">
       {{ content }}
     </div>
-
+    <div class="sidebarright">
+      {% include categories.html %}
+      {% include tag_archive.html %}
+      
+    </div>
+    <div style="clear:both"></div>
+    
   </body>
 </html>
+
+   

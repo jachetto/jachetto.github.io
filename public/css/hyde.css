@@ -53,6 +53,18 @@ html {
  * out above content in mobile and later moves to the side with wider viewports.
  */
 
+.sidebarright {
+	color: #fff;
+    background: #4b4b4b;
+    position: fixed;
+    top: 0;
+    right: 0;
+	bottom: 0;
+    width: 218px;
+    padding: 40px;
+}
+
+
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;
@@ -74,6 +86,15 @@ html {
 .sidebar a {
   color: #fff;
 }
+
+.sidebarright a {
+  color: #fff;
+}
+
+.sidebarright h2 {
+  color: #fff;
+}
+
 
 /* About section */
 .sidebar-about h1 {

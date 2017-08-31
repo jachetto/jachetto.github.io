@@ -5,6 +5,12 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
+  <span class="tag">[
+    {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+    {% endfor %}
+  ]</span>  
   {{ content }}
 </div>
 
@@ -23,3 +29,21 @@ layout: default
     {% endfor %}
   </ul>
 </div>
+
+{% if page.comments %}
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = '{{ page.url }}'; 
+this.page.identifier = '{{ page.url }}';
+};
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://jacoit.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+{% endif %}

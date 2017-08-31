@@ -16,8 +16,8 @@
 title: jaco's blog
 email: jachetto@gmail.com
 description: an experimental blog
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://jachetto.github.io
 twitter_username: jachetto
 github_username:  jachetto
 
@@ -26,6 +26,27 @@ markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
+  - jekyll-seo-tag
 exclude:
   - Gemfile
   - Gemfile.lock
+  
+  
+# Navigation (2nd level links supported)
+nav:
+  Home:           
+    - '/'
+  Blog:           
+    - '/blog/'
+    - { Categories: '/category/' }
+    - { Tags: '/tags/' }
+  About:          
+    - '/about/'
+  Github Project: 
+    - 'http://codinfox.github.io/'
+
+# Where are tags and categories displayed
+tag_page: '/blog/tags/'
+category_page: '/blog/categories/'
+
+
