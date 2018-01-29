@@ -4,7 +4,9 @@ title: "nginx uwsgi django memcache the magic combo"
 date: 2013-04-08 16:51
 description: "How to build a perfect deploy with Nginx, Django, Uwsgi, Memcached"
 comments: true
-categories: Nginx Django Memcached uwsgi
+categories: Nginx Django Python
+tags: uwsgi memcached performance Nginx Django Python
+
 ---
 Well, one of the most interesting feature in Django, is the cache framework. Every django developer use the django cache to speed up the performance.
 On the other side, Nginx it's probably the fastest server for the static file management.
@@ -30,17 +32,12 @@ Our goal is another chain:
 
 So, let's start:
 
-{% codeblock custom/middleware.py lang:python %}
+```python
+#custom/middleware.py lang:python
 class NginxMemcacheMiddleWare:
     cache_timeout = settings.CACHE_MIDDLEWARE_SECONDS
     key_prefix = settings.CACHE_MIDDLEWARE_KEY_PREFIX        
-	   nginx_cache_prefix == settings.NGINX_CACHE_PREFIX
-
-    def _session_accessed(self, request):
-         try:
-             return request.session.accessed
-         except AttributeError:
-             return False    
+    nginx_cache_prefix == settings.NGINX_CACHE_PREFIX
 
     def process_response(self, request, response):
         path = request.get_full_path()
@@ -51,7 +48,6 @@ class NginxMemcacheMiddleWare:
          
         if request.method != "GET" or response.status_code != 200 or (path.startswith('/admin')):
             return response
-
         
         try:
             key = "%s:%s" % (nginx_cache_prefix, path)
@@ -68,12 +64,12 @@ class NginxMemcacheMiddleWare:
         response['Vary'] = 'Accept-Encoding'
         
         return response
-{% endcodeblock %}
-
+```
 
 Our settings.py will looks like:
 
-{% codeblock settings.py lang:python %}
+```python
+#settings.py 
 MIDDLEWARE_CLASSES = (    
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -82,37 +78,38 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'custom.middleware.NginxMemcacheMiddleWare',
 )
-{% endcodeblock %}
+```
 
 And nginx site-enabled configuration:
 
-{% codeblock site_enabled/default.conf lang:nginx %}
-           location / {
-	       	   expires       -1;
-               add_header    Cache-Control no-cache;
-               add_header    Vary User-Agent;
-	       	   include     /etc/nginx/uwsgi_params;
-               if ($request_method = POST) {
-                        uwsgi_pass  uwsgicluster;
-               }
+```nginx
+#site_enabled/default.conf
+location / {
+    expires       -1;
+    add_header    Cache-Control no-cache;
+    add_header    Vary User-Agent;
+    include     /etc/nginx/uwsgi_params;
+    
+    if ($request_method = POST) {
+         uwsgi_pass  uwsgicluster;
+    }
 
-	      	   default_type  "text/html";
-               charset utf-8;
-               set $memcached_key ":1:CUSTOMKEY:$request_uri";
-               memcached_pass localhost:11211;
-               error_page 404 502 = @fallback;
-            }
+    default_type  "text/html";
+    charset utf-8;
+    set $memcached_key ":1:CUSTOMKEY:$request_uri";
+    memcached_pass localhost:11211;
+    error_page 404 502 = @fallback;
+}
 
-			location @fallback {
-				expires       -1;
-		        add_header    Cache-Control no-cache;
-		        add_header    Vary User-Agent;
-		        include     /etc/nginx/uwsgi_params;
-		        uwsgi_pass  uwsgicluster;
+location @fallback {
+    expires       -1;
+    add_header    Cache-Control no-cache;
+    add_header    Vary User-Agent;
+    include     /etc/nginx/uwsgi_params;
+    uwsgi_pass  uwsgicluster;
 				internal; 
-	  		}
-{% endcodeblock %}
-
+}
+```
 Where CUSTOMKEY è id the same used in settings.py
 
 That's all
