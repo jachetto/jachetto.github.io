@@ -23,7 +23,7 @@ github_username:  jachetto
 
 # Build settings
 markdown: kramdown
-theme: hacker
+theme: jekyll-theme-hacker
 gems:
   - jekyll-feed
   - jekyll-seo-tag
