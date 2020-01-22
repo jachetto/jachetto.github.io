@@ -31,8 +31,8 @@ Our goal is another chain:
 
 So, let's start:
 
-```nginx
-# custom/middleware.py
+```python
+#custom/middleware.py
 class NginxMemcacheMiddleWare:
     cache_timeout = settings.CACHE_MIDDLEWARE_SECONDS
     key_prefix = settings.CACHE_MIDDLEWARE_KEY_PREFIX        
