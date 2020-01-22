@@ -51,7 +51,7 @@ now, you can open your ~/.bash_profile and add an alias
 
 ```bash
 # ~/.bash_profile lang:bash
-	alias goserver="osascript ~/bin/gotoserver.scpt"
+alias goserver="osascript ~/bin/gotoserver.scpt"
 ```
 
 and this is all.
