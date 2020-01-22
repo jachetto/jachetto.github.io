@@ -4,7 +4,7 @@ title: "Google API Oauth 2.0 the short way"
 date: 2013-05-31 21:24
 comments: true
 categories: [google,]
-keywords: Oauth
+tags: [api,]
 ---
 
 Well 1st of all my problem: more or less one year ago i wrote a nice python script, a shell script that every night downloads datas from my analytics account and save them to a database. It's useful for my job because i can use this data to better analyze how my business web sites are going.
