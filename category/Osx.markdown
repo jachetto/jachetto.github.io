@@ -1,6 +1,6 @@
 ---
 layout: categorypage
-title: "Category: jekyll"
-categories: jekyll
+title: "Category: OSX"
+categories: osx
 robots: noindex
 ---

@@ -1,6 +1,8 @@
 ---
 layout: tagpage
-title: "Tag: Django"
-tags: django
+title: "Tag: Auth"
+tags: auth
 robots: noindex
 ---
+
+

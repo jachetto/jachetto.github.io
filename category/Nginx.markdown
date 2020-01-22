@@ -1,6 +1,6 @@
 ---
 layout: categorypage
 title: "Category: Nginx"
-categories: Nginx
+categories: nginx
 robots: noindex
 ---

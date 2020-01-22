@@ -1,6 +1,8 @@
 ---
 layout: categorypage
 title: "Category: Django"
-categories: Django
+categories: django
 robots: noindex
 ---
+
+

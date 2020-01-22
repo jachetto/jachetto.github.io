@@ -1,6 +1,6 @@
 ---
 layout: categorypage
-title: "Category: update"
-categories: update
+title: "Category: Google"
+categories: google
 robots: noindex
 ---
