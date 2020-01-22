@@ -91,30 +91,30 @@ And nginx site-enabled configuration:
 
 ```nginx
 # site_enabled/default.conf
-           location / {
-	       	   expires       -1;
-               add_header    Cache-Control no-cache;
-               add_header    Vary User-Agent;
-	       	   include     /etc/nginx/uwsgi_params;
-               if ($request_method = POST) {
-                        uwsgi_pass  uwsgicluster;
-               }
+location / {
+    expires       -1;
+    add_header    Cache-Control no-cache;
+    add_header    Vary User-Agent;
+    include     /etc/nginx/uwsgi_params;
+    if ($request_method = POST) {
+                uwsgi_pass  uwsgicluster;
+    }
 
-	      	   default_type  "text/html";
-               charset utf-8;
-               set $memcached_key ":1:CUSTOMKEY:$request_uri";
-               memcached_pass localhost:11211;
-               error_page 404 502 = @fallback;
-            }
+    default_type  "text/html";
+    charset utf-8;
+    set $memcached_key ":1:CUSTOMKEY:$request_uri";
+    memcached_pass localhost:11211;
+    error_page 404 502 = @fallback;
+}
 
-			location @fallback {
-				expires       -1;
-		        add_header    Cache-Control no-cache;
-		        add_header    Vary User-Agent;
-		        include     /etc/nginx/uwsgi_params;
-		        uwsgi_pass  uwsgicluster;
-				internal; 
-	  		}
+location @fallback {
+    expires       -1;
+    add_header    Cache-Control no-cache;
+    add_header    Vary User-Agent;
+    include     /etc/nginx/uwsgi_params;
+    uwsgi_pass  uwsgicluster;
+    internal; 
+}
 ```
 
 Where CUSTOMKEY è id the same used in settings.py
