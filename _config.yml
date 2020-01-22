@@ -24,7 +24,7 @@ github_username:  jachetto
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
+plugin:
   - jekyll-feed
   - jekyll-seo-tag
 exclude:
