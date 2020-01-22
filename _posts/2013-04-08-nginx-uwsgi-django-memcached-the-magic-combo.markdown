@@ -36,7 +36,7 @@ So, let's start:
 class NginxMemcacheMiddleWare:
     cache_timeout = settings.CACHE_MIDDLEWARE_SECONDS
     key_prefix = settings.CACHE_MIDDLEWARE_KEY_PREFIX        
-	   nginx_cache_prefix == settings.NGINX_CACHE_PREFIX
+	nginx_cache_prefix == settings.NGINX_CACHE_PREFIX
 
     def _session_accessed(self, request):
          try:
