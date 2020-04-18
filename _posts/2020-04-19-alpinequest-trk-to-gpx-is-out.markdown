@@ -4,7 +4,7 @@ title: "AlpineQuest TRK to GPS is out"
 date: 2020-04-19 17:25
 comments: true
 categories: [python,]
-tags: [gpx, alpinequest, hiking]
+tags: [gpx, alpinequest, hiking,]
 ---
 
 I've just released the 1st beta version of Alp2gpx  simple AlpineQuest Trk2GPX converter
