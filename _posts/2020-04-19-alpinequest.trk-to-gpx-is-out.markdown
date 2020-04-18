@@ -10,7 +10,7 @@ tags: [gpx, alpinequest, hiking]
 I've just released the 1st beta version of Alp2gpx  simple AlpineQuest Trk2GPX converter
 
 Alpine Quest is a very nice GPS app for outdoor activities
-[https://www.alpinequest.net/]
+[https://www.alpinequest.net/](https://github.com/phkehl/apq2gpx)
 
 
 Alp2Gpx is available at
