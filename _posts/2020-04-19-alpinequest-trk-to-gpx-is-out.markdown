@@ -31,4 +31,7 @@ A special thanks to my friends **'Amici Alpinisti'**.
 The friends with whom i share my hiking adventures
 
 *** CHANGELOG ***
-18 April 2020 1st beta release.  Only TRK supported
+```diff
+- 18 April 2020 1st beta release.  Only TRK supported
+- 20 April Added support for LDk
+```
