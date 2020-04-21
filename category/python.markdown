@@ -1,6 +1,6 @@
 ---
 layout: categorypage
 title: "Category: Python"
-categories: Python
+categories: python
 robots: noindex
 ---
