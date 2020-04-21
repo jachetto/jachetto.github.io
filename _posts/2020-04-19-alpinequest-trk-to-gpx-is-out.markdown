@@ -31,5 +31,5 @@ A special thanks to my friends **'Amici Alpinisti'**.
 The friends with whom i share my hiking adventures
 
 **CHANGELOG**
-* 19 April Added support for LDk
+* 19 April Added support for LDK
 * 18 April 2020 1st beta release.  Only TRK supported
