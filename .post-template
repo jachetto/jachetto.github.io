@@ -1,0 +1,9 @@
+---
+layout: post
+title: "This is a new article"
+description: "Custom Django auth to login with email"
+date: %yyyy%-%mm%-%dd% %hh%:%ii%
+comments: true
+tags: [auth]
+categories: [django,]
+---

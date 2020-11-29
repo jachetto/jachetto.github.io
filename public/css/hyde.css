@@ -203,6 +203,10 @@ a.sidebar-nav-item:focus {
 
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
+/* TAG PAGE */
+.post ul li {
+  padding-bottom: 8px;
+}
 /* Red */
 .theme-base-08 .sidebar {
   background-color: #ac4142;
