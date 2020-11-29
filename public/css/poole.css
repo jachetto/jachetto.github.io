@@ -94,6 +94,11 @@ h2 {
   margin-top: 1rem;
   font-size: 1.5rem;
 }
+.post-list h2 {
+  margin-top: 3px;
+  margin-bottom: 12px;
+}
+
 h3 {
   margin-top: 1.5rem;
   font-size: 1.25rem;
