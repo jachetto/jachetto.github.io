@@ -9,9 +9,9 @@ categories: [python, osx]
 ---
 
 Well, i'm not a big Microsoft fan. And more than this i work on OSX and i love it. So during the last 10 years and more, i always used Wing Ide for my projects. 
-Wing IDE is just beatiful, nice, strong and full of features. But i alwys try improve my tools, my skill and my knowledgement. So recently i gave an opportunity to Visual Studio Code, and at the end i have to admit that is really comfortable.
+Wing IDE is just beatiful, nice, strong and full of features. But i always try improve my tools, my skill and my knowledgement. So recently i gave an opportunity to Visual Studio Code, and at the end i have to admit that is really comfortable.
 
-I like the numbere of extension available for it. I love pylint, and i love as the UI is designed. More than this the outline, timeline, git integration, compare two file options are really strong features. 
+I like the number of extension available for it. I love pylint, and i love as the UI is designed. More than this the outline, timeline, git integration, compare two file options are really strong features. 
 
 Wing has a great number of features and many of the features of Visual Studio are also available in Wing. But i've to say that in Visual Studio everything looks like more easy to use and well integrated.
 
