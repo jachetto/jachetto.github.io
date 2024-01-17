@@ -26,24 +26,48 @@
   <!-- SEM -->
   
   {% seo %}
-  <script>
-     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-     ga('create', 'UA-3270025-1', 'auto');
-     ga('send', 'pageview');
-     ga('send', 'pageview', {'anonymizeIp': true});
-   </script>
    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNVCPMGDQC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-DNVCPMGDQC');
     </script>
+      <script>
+        function sendToGoogleAnalytics({name, delta, value, id}) {
+            // Assumes the global `gtag()` function exists, see:
+            // https://developers.google.com/analytics/devguides/collection/ga4
+            gtag('event', name, {
+              // Built-in params:
+              value: delta, // Use `delta` so the value can be summed.
+              // Custom params:
+              metric_id: id, // Needed to aggregate events.
+              metric_value: value, // Optional.
+              metric_delta: delta, // Optional.
+    
+              // OPTIONAL: any additional params or debug info here.
+              // See: https://web.dev/articles/debug-performance-in-the-field
+              // metric_rating: 'good' | 'needs-improvement' | 'poor',
+              // debug_info: '...',
+              // ...
+            });
+          }
+        (function () {
+          var script = document.createElement('script');
+          script.src = 'https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js';
+          script.onload = function () {
+            // When loading `web-vitals` using a classic script, all the public
+            // methods can be found on the `webVitals` global namespace.
+            webVitals.onCLS(sendToGoogleAnalytics);
+            webVitals.onFID(sendToGoogleAnalytics);
+            webVitals.onLCP(sendToGoogleAnalytics);
+            webVitals.onINP(sendToGoogleAnalytics);
+          };
+          document.head.appendChild(script);
+        })();
+      </script>
+      
     <script type="text/javascript">
 var _iub = _iub || [];
 _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"cookiePolicyInOtherWindow":true,"countryDetection":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":3132343,"whitelabel":false,"cookiePolicyId":92492221,"lang":"it","cookiePolicyUrl":"https://jaco.it/blog/cookie-policy.html","privacyPolicyUrl":"https://jaco.it/blog/cookie-policy.html","privacyPolicyNoticeAtCollectionUrl":"https://jaco.it/blog/cookie-policy.html", "banner":{ "acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"position":"float-bottom-left","rejectButtonDisplay":true,"showPurposesToggles":true }};
