@@ -3,3 +3,4 @@ _site
 .jekyll-metadata
 tag_generator.py
 jaco.code-workspace
+.idea
