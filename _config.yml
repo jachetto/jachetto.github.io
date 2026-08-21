@@ -27,6 +27,7 @@ theme: minima
 plugin:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -50,3 +51,5 @@ tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
 
+feed:
+  path: atom.xml
